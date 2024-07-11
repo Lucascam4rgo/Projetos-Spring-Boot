@@ -58,6 +58,8 @@ public class JWTFilter extends OncePerRequestFilter {
 
                 SecurityContextHolder.getContext().setAuthentication(userToken);
 
+                response.addHeader(JWTCreator.HEADER_AUTHORIZATION, PREFIX + " " + token);
+
             }else {
                 SecurityContextHolder.clearContext();
             }
